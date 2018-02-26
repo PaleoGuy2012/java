@@ -7,12 +7,17 @@ class TasksController < ApplicationController #TasksController inherits all trai
     task = Task.find(params[:id])#find the task by it's id
     task.update_attributes(task_params)#updates task to show it's done
     render json: task #JSON representation of updated item 
+  end
+
+  def create
+    task = Task.create(task_params)
+    render json: task
   end 
 
   private #private method 
 
   def task_params #naming method task_params
-    params.require(:task).permit(:done)
+    params.require(:task).permit(:done, :title)
   end
 
 end
