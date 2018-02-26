@@ -1,6 +1,6 @@
 class TasksController < ApplicationController #TasksController inherits all traits from Application Controller 
   def index #define index method
-    render json: Task.all #JSON representation of all Tasks 
+    render json: Task.order(:id) #JSON representation of all Tasks 
   end #end of index method 
 
   def update
